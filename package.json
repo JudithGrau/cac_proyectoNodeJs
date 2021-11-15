@@ -11,7 +11,7 @@
     "url": "git+https://github.com/JudithGrau/cac_proyectoNodeJs.git"
   },
   "keywords": [],
-  "author": "Judith Graus",
+  "author": "Judith Grau",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/JudithGrau/cac_proyectoNodeJs/issues"
@@ -22,6 +22,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^6.13.0",
     "nodemon": "^2.0.15"
   }
 }

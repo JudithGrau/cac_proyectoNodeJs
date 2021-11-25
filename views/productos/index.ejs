@@ -5,7 +5,7 @@
 <h1 class="title text-center">Productos</h1>
 <hr/>
 
-<button class="bg-primary ml-5 text-white" style="border-radius: 10px;" href="/productos/create">Nuevo Producto</button>
+<a class="button bg-primary ml-5 p-2 text-white" style="border-radius: 10px;" href="/productos/create">Nuevo Producto</a>
 
 <% productos.forEach((producto)=> { %>
     <!-- <h2>    
@@ -20,7 +20,25 @@
                 <!-- <p class="text-center">Precio: $<%= producto.price %></p>
                 <p class="text-center">Id: <%= producto.id %></p> -->
             </div>
-    
+            <a class="button bg-warning ml-5 p-2 text-white" style="border-radius: 10px;" href="/productos/<%= producto.id %>/edit">Editar</a>
+            
+            <form class="form-delete" action="/productos/<%= producto.id %>/delete?_method=DELETE" method="post">
+                <button type="submit" class="bg-danger ml-2 p-2 text-white" style="border-radius: 10px;" >Borrar</button>
+            </form>
         </div>
     </section>
 <% }) %>
+
+<script>
+    const forms = document.querySelectorAll('.form-delete')
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', (event) => {
+            event.preventDefault()
+
+            if (confirm('¿Esta seguro?') == true) {
+                event.target.submit()
+            }
+        })
+    })
+</script>

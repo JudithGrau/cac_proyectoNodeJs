@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
-const methodOverride = require('method-override')
+const methodOverride = require('method-override')//me permite usar otros métodos que no sean el get o post
 
 app.set('view engine', 'ejs')
 app.use(expressLayouts)
@@ -11,7 +11,7 @@ app.use(expressLayouts)
 app.use(express.static(__dirname + '/public'))
 //config importante: nos permite recibir en el req.body, la informacion del formulario
 app.use(express.urlencoded({extended: false}))
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))//configuro el midlewarede override
 
 app.use('/', require('./routes/productos'))
 app.use('/', require('./routes/contacto'))

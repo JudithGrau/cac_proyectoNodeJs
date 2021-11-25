@@ -1,19 +1,24 @@
 const express = require('express')
 const router = express.Router()
 
-const productos = require('../productos')
+const { body } = require('express-validator')
+
+const controller = require('../controller')
 
 router.get('/', (req,res)=>{
     res.render('Index')
 })
 
-router.get('/productos', (req,res)=>{
-    /* console.log(productos.all()); */
-    res.render('productos/index', { productos: productos.all() })
-})
+router.get('/productos/edit', controller.edit)
+router.put('/productos/update', controller.update)
 
-router.get('/productos/:id', (req,res)=>{
-    res.render('productos/show',{ producto: productos.find(req.params.id) } )
-})
+router.get('/productos/create', controller.create)
+
+router.post('/productos/store', [
+    body('nombre', 'El nombre es obligatorio').notEmpty()
+], controller.store)
+
+router.get('/productos', controller.index)
+router.get('/productos/:id', controller.show)
 
 module.exports = router

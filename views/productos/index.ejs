@@ -4,6 +4,9 @@
 
 <h1 class="title text-center">Productos</h1>
 <hr/>
+
+<button class="bg-primary ml-5 text-white" style="border-radius: 10px;" href="/productos/create">Nuevo Producto</button>
+
 <% productos.forEach((producto)=> { %>
     <!-- <h2>    
         <a href="/productos/<%= producto.id %>"><%= producto.title %></a>
@@ -12,10 +15,10 @@
         <div class="row">
     
             <div class="card col-4" style="align-items: center;border-radius: 10px;">
-                <img style="width: 100px;" src=<%= producto.thumbnail %> />
-                <h4 class="title text-center"><a href="/productos/<%= producto.id %>"><%= producto.title %></a></h4>
-                <p class="text-center">Precio: $<%= producto.price %></p>
-                <p class="text-center">Id: <%= producto.id %></p>
+                <!-- <img style="width: 100px;" src=<%= producto.thumbnail %> /> -->
+                <h4 class="title text-center"><a href="/productos/<%= producto.id %>"><%= producto.nombre %></a></h4>
+                <!-- <p class="text-center">Precio: $<%= producto.price %></p>
+                <p class="text-center">Id: <%= producto.id %></p> -->
             </div>
     
         </div>
